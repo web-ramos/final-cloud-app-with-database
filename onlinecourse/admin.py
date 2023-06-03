@@ -1,13 +1,15 @@
 from django.contrib import admin
 from .models import Course, Lesson, Instructor, Learner, Question, Choice
 
+
+# pass ramos: a4q4xGuVVe6zXTd
+# root: root
 class ChoiceInline(admin.TabularInline):
     model = Choice
     extra = 1
 
 class QuestionAdmin(admin.ModelAdmin):
     inlines = [ChoiceInline]
-
 
 class LessonInline(admin.StackedInline):
     model = Lesson
@@ -25,8 +27,8 @@ class CourseAdmin(admin.ModelAdmin):
 class LessonAdmin(admin.ModelAdmin):
     list_display = ['title']
 
-admin.site.register(Question, QuestionInline)
-admin.site.register(Choice, ChoiceInline)
+admin.site.register(Question, QuestionAdmin)
+admin.site.register(Choice)
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Lesson, LessonAdmin)
 admin.site.register(Instructor)
